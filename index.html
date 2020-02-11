@@ -76,6 +76,12 @@
 			small .text-monospace {
 				font-size: 12px;
 			}
+			.info-text {
+				position: relative;
+				top: -15px;
+				color: rgb(103, 113, 133);
+				font-size: 0.8rem;
+			}
 		</style>
 		<title>Blockchain Explorer</title>
 		<meta name="description" content="Beyondcoin Blockchain Explorer">
@@ -118,7 +124,7 @@
 				<div class="card-body">
 					<form id="search-form">
 						<div class="input-group">
-							<input type="text" id="search-field" name="search-field" class="form-control" placeholder="Block, hash, transaction, etc..." aria-label="Recipient's username" aria-describedby="button-addon2">
+							<input type="text" id="search-field" name="search-field" class="form-control" placeholder="Lookup blocks, hash, transactions..." aria-label="Recipient's username" aria-describedby="button-addon2">
 							<div class="input-group-append">
 								<button class="btn btn-outline-dark" type="submit" id="button-addon2">Search</button>
 							</div>
@@ -278,7 +284,7 @@
 			var networksConfigs = {
 				'BYND': {
 					'name': 'Main Network (BYND)',
-					'api': 'http://api.beyondcoin.io',
+					'api': 'https://api.beyondcoin.io',
 					'ticker': 'BYND',
 					'decimals': 8,
 					'hrp': 'bynd'
@@ -794,20 +800,33 @@
 			function displayBlockInfo(data) {
 				$('#block-transactions').empty()
 				content = `
+					<div class="info-text">
+                        <span>Block at depth ${data.height} in the Beyondcoin blockchain</span>
+                    </div><br />
 					<div class="card mb-3">
 						<div class="table-responsive">
 							<table class="table table-borderless table-md table-striped mb-0">
 								<tbody>
 									<tr>
 										<td>Height</td>
-										<td id="block-info-height" data-block-info-height="${data.height}">${data.height} (<b>Confirmations ${data.confirmations}</b>)</td>
+										<td id="block-info-height" data-block-info-height="${data.height}">${data.height}<!-- (<b>Confirmations ${data.confirmations}</b>)--></td>
+									</tr>
+									<tr>
+										<td>Confirmations</td>
+										<td>
+											${data.confirmations != undefined ? `
+												${data.confirmations}
+											` : `
+												<span>0</span>
+											`}
+										</td>
 									</tr>
 									<tr>
 										<td>Timestamp</td>
-										<td>${timeFormat(data.time)} (<b>${data.time}</b>)</td>
+										<td>${timeFormat(data.time)}<!-- (<b>${data.time}</b>)--></td>
 									</tr>
 									<tr>
-										<td>Block Hash</td>
+										<td>Hash</td>
 										<td id="block-info-hash" data-block-info-hash="${data.hash}">${data.hash}</td>
 									</tr>
 									<tr>
@@ -827,7 +846,7 @@
 													${data.nextblockhash}
 												</a>
 											` : `
-												<b>This is latest block</b>
+												<b>This is the latest block</b>
 											`}
 										</td>
 									</tr>
@@ -843,7 +862,7 @@
 									</tr>
 									<tr>
 										<td>Version</td>
-										<td>${data.versionHex}</td>
+										<td>0x${data.version}</td>
 									</tr>
 									<tr>
 										<td>Bits</td>
@@ -862,7 +881,7 @@
 										<td>${data.difficulty}</td>
 									</tr>
 									<tr>
-										<td>Transactions</td>
+										<td>Number of Transactions</td>
 										<td>${data.txcount}</td>
 									</tr>
 								</tbody>
@@ -885,37 +904,60 @@
 
 			function displayTransactionInfo(data) {
 				content = `
+					<div class="info-text">
+                        <span>View information about a Beyondcoin transaction</span>
+                    </div><br />
 					<div class="card mb-3">
 						<div class="table-responsive">
 							<table class="table table-borderless table-md table-striped mb-0">
 								<tbody>
 									<tr>
-										<td>Transaction Hash</td>
+										<td><!--Transaction -->Hash</td>
 										<td id="tx-info-hash" data-tx-info-hash="${data.txid}">${data.txid}</td>
+									</tr>
+									<tr>
+										<td>Status</td>
+										<td>
+											${data.blockhash != undefined ? `
+												<span class="text-success">Confirmed</span>
+											` : `
+												<span class="text-danger">Unconfirmed</span>
+											`}
+										</td>
 									</tr>
 									${data.time != undefined ? `
 										<tr>
-											<td>Timestamp</td>
-											<td>${timeFormat(data.time)} (<b>${data.time}</b>)</td>
+											<td><!--Timestamp-->Received Time</td>
+											<td>${timeFormat(data.time)} <!--(<b>${data.time}</b>)--></td>
 										</tr>
 									` : ''}
 									<tr>
-										<td>Height</td>
+										<td><!--Height-->Included in Block</td>
 										<td>
 											${data.blockhash != undefined ? `
-												<a href="#/block/${data.blockhash}">${data.height}</a> (<b>Confirmations ${data.confirmations}</b>)
+												<a href="#/block/${data.blockhash}">${data.height}</a><!-- (<b>Confirmations ${data.confirmations}</b>)-->
 											` : `
-												<span class="text-danger">This transaction located in memory pool and not included to blockchain yet!</span>
+												<span class="text-danger">Mempool<!--This transaction located in memory pool and not included to blockchain yet!--></span>
+											`}
+										</td>
+									</tr>
+									<tr>
+										<td>Confirmations</td>
+										<td>
+											${data.blockhash != undefined ? `
+												${data.confirmations}
+											` : `
+												<span>0</span>
 											`}
 										</td>
 									</tr>
 									<tr>
 										<td>Amount Transferred</td>
-										<td><span class="text-monospace">${amountFormat(data.amount)}</span> <b>${getApi()['ticker']}</b></td>
+										<td><span class="text-monospace">${amountFormat(data.amount)}</span> <!--<b>-->${getApi()['ticker']}<!--</b>--></td>
 									</tr>
 									<tr>
 										<td>Size</td>
-										<td>${data.size} (bytes)</td>
+										<td>${data.size} bytes</td>
 									</tr>
 									<tr>
 										<td>Version</td>
