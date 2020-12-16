@@ -1,6 +1,5 @@
-# Simple Blockchain Explorer
-Nice and simple blockchain explorer with robust [ApiServer](https://github.com/beyondcoin-project/apiserver/) backend :3
+# Beyondcoin Blockchain Explorer
 
-Feel free to modify/use it in your projects :D
+Beyondcoin Blockchain Explorer that uses the [ApiServer](https://github.com/beyondcoin-project/apiserver/) for the backend.
 
-Working example [https://beyondcoinexplorer.com](https://beyondcoinexplorer.com)
+Beyondcoin Explorer: [https://beyondcoinexplorer.com](https://beyondcoinexplorer.com)

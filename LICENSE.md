@@ -2,6 +2,7 @@
                     Version 2, December 2004
 
  Copyright (C) 2019 Volodymyr Biloshytskyi <volbil@protonmail.com>
+ Copyright (C) 2020 Kristian Kramer <kristian@beyondcoin.io>
 
  Everyone is permitted to copy and distribute verbatim or modified
  copies of this license document, and changing it is allowed as long
