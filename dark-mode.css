@@ -1,0 +1,32 @@
+[data-theme="dark"] {
+  background-color: #222 !important;
+  color: #eee;
+}
+
+[data-theme="dark"] .bg-light {
+  background-color: #333 !important;
+}
+
+[data-theme="dark"] .bg-white {
+  background-color: #000 !important;
+}
+
+[data-theme="dark"] .bg-black {
+  background-color: #eee !important;
+}
+
+[data-theme="dark"] .bg-black:hover {
+    background-color: lightgrey !important;
+  }
+
+[data-theme="dark"] .bg-table {
+    background-color: #333 !important;
+    color: whitesmoke;
+    border-color: #333;
+}
+
+[data-theme="dark"] .bg-button {
+    background-color: lightgrey !important;
+    color: grey;
+    border-color: whitesmoke;
+}

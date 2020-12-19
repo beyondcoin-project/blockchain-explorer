@@ -6,51 +6,97 @@
 function addressName(address) {
 	if (address == "BKJKT5ZpdxppVa8LDNxCYnfHHNNAA1Xdi1") { // FOUNDER
 		$("#addressnametext").removeClass("hidden").addClass("show")
-		var addressnametext = "Founder"
+		var addressnametext = `
+				<span id="addressnametext" class="addressnametext transaction-badge">
+					<span class="ml-1 badge badge-primary">
+						Founder
+					</span>
+				</span>`
 		return addressnametext
 	}
 	else if (address == "BjxegtS4ztCS51gskLSYYB3Kce57W1knPc") { // TEAM MEMBER
 		$("#addressnametext").removeClass("hidden").addClass("show")
-		var addressnametext = "Team member"
+		var addressnametext = `
+				<span id="addressnametext" class="addressnametext transaction-badge">
+					<span class="ml-1 badge badge-primary">
+						Team Member
+					</span>
+				</span>`
         return addressnametext
     }
 	else if (address == "BEYoNDdD2iKA5kw4a7ki7Ck1H4PkW9qXsF") { // BEYONDCOINPOOL.COM
 		$("#addressnametext").removeClass("hidden").addClass("show")
-		var addressnametext = "Beyondcoin Pool"
+		var addressnametext = `
+				<span id="addressnametext" class="addressnametext transaction-badge">
+					<span class="ml-1 badge badge-primary">
+						Beyondcoin Pool
+					</span>
+				</span>`
 		return addressnametext
 	}
 	else if (address == "BaVe4c6P4X6QzPg9DRdJ9qcf7R8SLkfgnM") { // GPUHOT.COM
 	    $("#addressnametext").removeClass("hidden").addClass("show")
-		var addressnametext = "GPUHot.com"
+		var addressnametext = `
+				<span id="addressnametext" class="addressnametext transaction-badge">
+					<span class="ml-1 badge badge-primary">
+						gpuhot.com
+					</span>
+				</span>`
 		return addressnametext
 	}
 	else if (address == "BkCG1E9bEq37Tpo7ihsNfWZpEVZVuHViqH ") { // ICOPOOL.COM
 		$("#addressnametext").removeClass("hidden").addClass("show")
-		var addressnametext = "icopool.com"
+		var addressnametext = `
+				<span id="addressnametext" class="addressnametext transaction-badge">
+					<span class="ml-1 badge badge-primary">
+						icopool.com
+					</span>
+				</span>`
 		return addressnametext
 	}
 	else if (address == "BoBQio1Afgs7ww4gnNzbszBSZjDM9phMg1") { // MINER-WORLD.COM
 		$("#addressnametext").removeClass("hidden").addClass("show")
-		var addressnametext = "miner-world.com"
+		var addressnametext = `
+				<span id="addressnametext" class="addressnametext transaction-badge">
+					<span class="ml-1 badge badge-primary">
+						miner-world.com
+					</span>
+				</span>`
 		return addressnametext
 	}
     else if (address == "BkwR4AojmBxWzmvVkmQ5PQXY1QTvBKf9rb") { // ZPOOL.CA
 		$("#addressnametext").removeClass("hidden").addClass("show")
-		var addressnametext = "zpool.ca"
+		var addressnametext = `
+				<span id="addressnametext" class="addressnametext transaction-badge">
+					<span class="ml-1 badge badge-primary">
+						zpool.ca
+					</span>
+				</span>`
 		return addressnametext
 	}
 	else if (address == "BRSVbvusH1bXG7sd7t63qdgh66jusHMdJL") { // RESERVE WALLET 1
 		$("#addressnametext").removeClass("hidden").addClass("show")
-		var addressnametext = "Reserve Wallet 1"
+		var addressnametext = `
+				<span id="addressnametext" class="addressnametext transaction-badge">
+					<span class="ml-1 badge badge-primary">
+						Reserve Wallet 1
+					</span>
+				</span>`
 		return addressnametext
 	}
 	else if (address == "BBYNDXXXXXXXXXXXXXXXXXXXXXXXWsSWbG") { // BURN ADDRESS
 	    $("#addressnametext").removeClass("hidden").addClass("show") 
-		var addressnametext = "Burn Address"
+		var addressnametext = `
+				<span id="addressnametext" class="addressnametext transaction-badge">
+					<span class="ml-1 badge badge-primary">
+						Burn Address
+					</span>
+				</span>`
 		return addressnametext
 	} else { // HIDE ADDRESS STICKER
 		$('#addressnametext').removeClass("show").addClass("hidden")
-        return addressnametext
+		var addressnametext = ``
+		return addressnametext
 	}
 }
 

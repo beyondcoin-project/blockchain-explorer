@@ -1,0 +1,76 @@
+html {
+    height: 100%;
+}
+html, body {
+    min-height: 100%;
+}
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    padding-top: 75px;
+    padding-bottom: 56px;
+    position: relative;
+}
+#logo {
+    max-width: 30px;
+    max-height: 30px;
+    margin-top: -5px;
+    margin-right: 5px;
+}
+#supply {
+    cursor: pointer;
+}
+#qrCode canvas{
+    max-width: 100%;
+}
+.router-page {
+    display: none;
+}
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+[class*="entypo"]:before {
+    font-family: 'EntypoRegular', sans-serif;
+    font-size: 16px;
+}
+@media (max-width: 991.98px) {
+    .navbar-expand-lg>.container, .navbar-expand-lg>.container-fluid {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+}
+code {
+    background: #3f3f3f;
+    color: #ffffff;
+    padding: 3px;
+    border-radius: 5px;
+}
+.modal-dialog {
+    max-width: 530px;
+}
+.text-monospace {
+    font-size: 14px;
+}
+small .text-monospace {
+    font-size: 12px;
+}
+.info-text {
+    position: relative;
+    top: -15px;
+    color: rgb(103, 113, 133);
+    font-size: 0.8rem;
+}
+.dark-mode {
+    background-color: black;
+    color: grey;
+}
+#dark-mode-btn {
+    position: relative;
+    font-size: 35px;
+    color: lightgrey;
+    top: 0px;
+}
+#togglebtn:active {
+    border-color: transparent;
+}
